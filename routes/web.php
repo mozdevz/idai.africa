@@ -27,3 +27,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/person/new','PersonController@addForm');
+Route::post('/person/new','PersonController@add')->name('addPerson')->middleware('Auth');

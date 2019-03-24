@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class PersonController extends Controller
 {
-    //
+    
+    public function addForm(){
+    	return view('person.new');
+    }
 }
