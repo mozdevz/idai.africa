@@ -51,12 +51,8 @@ Ensure that you enable mod_rewrite, `sudo a2enmod rewrite` if you are using apac
 
 
 ## Contributing
-
-<blockquote>TODO: <blockquote>
-
-## Security Vulnerabilities
- 
+All contributions are welcome.
 
 ## License
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT license](LICENSE).
