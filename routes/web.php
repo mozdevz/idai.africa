@@ -28,5 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/person/new','PersonController@addForm');
-Route::post('/person/new','PersonController@add')->name('addPerson')->middleware('Auth');
+Route::get('/person/new','PersonController@addForm')->name('person.view');
+
+Route::post('/person/new','PersonController@add')
+    ->name('person.store')->middleware('Auth');
