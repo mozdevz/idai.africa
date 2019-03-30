@@ -1,5 +1,4 @@
-os:
-  - linux
+dist: xenial
 
 language: php
 
@@ -7,8 +6,11 @@ php:
   - '7.2'
   
 before_script:
+  - sudo apt install mysql-server-5.7
+  - sudo systemctl start mysql
   - composer self-update
   - composer install --no-dev
+  - php artisan migrate
   #- pear install pear/PHP_CodeSniffer
   
 script:
