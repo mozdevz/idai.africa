@@ -8,7 +8,7 @@ php:
 before_script:
   - sudo systemctl start mysql
   #- touch .env && echo "" > .env
-  - mysql -u root -e 'CREATE DATABASE idai_africa DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;' -p
+  - mysql -u root -e 'CREATE DATABASE idai_africa DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;'
   - composer self-update
   - composer install --no-dev
   - php artisan migrate
