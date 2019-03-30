@@ -8,6 +8,6 @@ class PersonController extends Controller
 {
     
     public function addForm(){
-    	return view('person.new');
+    	return view('victim.new');
     }
 }

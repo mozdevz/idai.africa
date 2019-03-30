@@ -4,6 +4,8 @@
 	<div class="col">
 		<form action="{{route('addPerson')}}" method="post">
 			@csrf
+            <div class="row">
+                <dic class="col-lg-8">
 			<div class="row">
                 <div class="col">
                   <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
@@ -84,19 +86,6 @@
             </div>
             <div class="row">
                 <div class="col">
-                  <div class="form-group {{ $errors->has('photo_url') ? ' has-error' : '' }}">
-                    <label for="photo_url">{{__('photo_url')}}</label>
-                    <input type="text" class="form-control" id="name" name="photo_url" value="{{ old('photo_url') }}" required>
-                    @if ($errors->has('photo_url'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('photo_url') }}</strong>
-                        </span>
-                    @endif
-                  </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
                   <div class="form-group {{ $errors->has('condition_description') ? ' has-error' : '' }}">
                     <label for="condition_description">{{__('condition_description')}}</label>
                     <input type="text" class="form-control" id="name" name="condition_description" value="{{ old('condition_description') }}" required>
@@ -108,32 +97,7 @@
                   </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                  <div class="form-group {{ $errors->has('created_at') ? ' has-error' : '' }}">
-                    <label for="created_at">{{__('created_at')}}</label>
-                    <input type="text" class="form-control" id="name" name="created_at" value="{{ old('created_at') }}" required>
-                    @if ($errors->has('created_at'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('created_at') }}</strong>
-                        </span>
-                    @endif
-                  </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                  <div class="form-group {{ $errors->has('updated_at') ? ' has-error' : '' }}">
-                    <label for="updated_at">{{__('updated_at')}}</label>
-                    <input type="text" class="form-control" id="name" name="updated_at" value="{{ old('updated_at') }}" required>
-                    @if ($errors->has('updated_at'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('updated_at') }}</strong>
-                        </span>
-                    @endif
-                  </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col">
 					<input type="submit" href="#" class="btn btn-primary pull-right dark-theme-btn b0" id="publish_btn" value="Add User">
@@ -141,5 +105,7 @@
             </div>
 		</form>
 	</div>
+    </div>
+</div>
 </div>
 @endsection

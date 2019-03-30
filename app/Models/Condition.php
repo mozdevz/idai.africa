@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\
+use App\Models\Victim;
 use Illuminate\Database\Eloquent\Model;
 
 class Condition extends Model
 {
 
-	protected $fillable = ['condition_id','condition_name','created_at','updated_at']
+	protected $fillable = ['id','condition_status','created_at','updated_at'];
     
 }

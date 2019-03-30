@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @auth
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -19,5 +20,6 @@
             </div>
         </div>
     </div>
+    @endauth
 </div>
 @endsection
