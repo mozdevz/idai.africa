@@ -8,6 +8,7 @@ php:
 before_script:
   - sudo apt install mysql-server-5.7
   - sudo systemctl start mysql
+  - touch .env && echo "" > .env
   - composer self-update
   - composer install --no-dev
   - php artisan migrate
