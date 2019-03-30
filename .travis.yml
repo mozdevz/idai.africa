@@ -6,9 +6,9 @@ php:
   - '7.2'
   
 before_script:
-  - sudo apt install mysql-server-5.7
   - sudo systemctl start mysql
-  - touch .env && echo "" > .env
+  #- touch .env && echo "" > .env
+  - mysql -u root -e 'CREATE DATABASE idai_africa DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;' -p
   - composer self-update
   - composer install --no-dev
   - php artisan migrate
