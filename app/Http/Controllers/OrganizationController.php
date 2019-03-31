@@ -39,7 +39,7 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('organizations.index');
     }
 
     /**
@@ -49,7 +49,7 @@ class OrganizationController extends Controller
      */
     public function findVolunteersView()
     {
-        return view('welcome');
+        return view('organizations.find-volunteers');
     }
 
     /**
@@ -83,6 +83,6 @@ class OrganizationController extends Controller
      */
     public function newMessage()
     {
-        return view('welcome');
+        return view('organizations.new-message');
     }
 }

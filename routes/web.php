@@ -33,8 +33,8 @@ Route::get('/person/new','PersonController@addForm')->name('person.view');
 Route::post('/person/new','PersonController@add')
     ->name('person.store')->middleware('Auth');
 
-Route::get('/organizations/login', 'OrganizationController@index')
-    ->name('organizations.login');
+//Route::get('/organizations/login', 'OrganizationController@index')
+//    ->name('organizations.login');
 
 Route::get('/organizations/find-volunteers', 
 	'OrganizationController@findVolunteersView')
