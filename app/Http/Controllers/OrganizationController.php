@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\{
-    Model\Volunteer,
-    Model\VolunteerAsset,
+//    Model\Volunteer,
+//    Model\VolunteerAsset,
     Repositories\Contracts\Organization
 };
 use Illuminate\{
@@ -18,7 +18,6 @@ class OrganizationController extends Controller
     /**
      * The organization repository implementation
      *
-     * @var \App\Model\Organization
      */
     protected $organization;
 
