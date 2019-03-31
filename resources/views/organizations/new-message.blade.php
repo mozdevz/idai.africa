@@ -41,9 +41,21 @@
     <div class="row">
         <div class="col-md-6 input-message">
             <a href="/organizations/find-volunteers" class="btn btn-primary"> Voltar</a>
-            <h2 class="text-center volunteer-search">Found 97 volunteers</h2>
-            <textarea rows="4"></textarea>
+            <h2 class="text-center volunteer-search">Found {{ count($volunterCategories) }} volunteers </h2><small><a class="see-users" href="javascript:;">See users</a></small>
 
+            <ul class="flag-show d-none">
+                @foreach($volunterCategories as $volunterCategory)
+                    <li>Mário Coluna - 842022789 | teste@teste.co.mz</li>
+                @endforeach
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+                {{--<li>Mário Coluna - 842022789 | teste@teste.co.mz</li>--}}
+            </ul>
+            <textarea rows="4"></textarea>
             <div class="body-button">
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
                     <button type="button" class="btn btn-success"><i class="fa fa-whatsapp"></i>&nbsp;whatsapp</button>
@@ -63,6 +75,14 @@
         <p class="text-center">All copyright&copy; are reserved to <b>IDAI</b> TEAM</p>
     </footer>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".see-users")
+            .click(function () {
+                $('.flag-show').toggleClass('d-none')
+            });
+    })
+</script>
 </body>
 </html>
