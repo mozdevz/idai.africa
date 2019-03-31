@@ -1,0 +1,19 @@
+dist: xenial
+
+language: php
+
+php:
+  - '7.2'
+  
+before_script:
+  - sudo systemctl start mysql
+  #- touch .env && echo "" > .env
+  - mysql -u root -e 'CREATE DATABASE idai_africa DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;'
+  - composer self-update
+  - composer install --no-dev
+  - php artisan migrate
+  #- pear install pear/PHP_CodeSniffer
+  
+#script:
+  #- vendor/bin/phpunit --coverage-text
+  #- phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
