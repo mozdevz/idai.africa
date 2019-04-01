@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\GeoProvince;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,22 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
+    public function index(Request $request, $province_id = null )
+    {   
+   
+        $provinces = GeoProvince::with('GeoCity')->get();
+  
+        if (!is_null($province_id)) {
+            $province = GeoProvince::with('GeoCity')->where('id',$province_id)->first();
+            
+        }else{
+
+            $province = GeoProvince::with('GeoCity')->first();
+        }
+
+        return view('home')
+        ->with('provinces', $provinces)
+        ->with('province', $province);
+        ;
     }
 }
