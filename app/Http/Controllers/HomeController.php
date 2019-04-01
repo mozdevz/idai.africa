@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Volunteer\Volunteer;
 use App\GeoProvince;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,10 @@ class HomeController extends Controller
      */
     public function index(Request $request, $province_id = null )
     {   
-   
+        $volunteer = Volunteer::with([ 
+            'City' => function ($query){ return $query->with('Province')->get(); }
+        ])->where('user_id', Auth::user()->id)->first();
+
         $provinces = GeoProvince::with('GeoCity')->get();
   
         if (!is_null($province_id)) {
@@ -36,6 +41,7 @@ class HomeController extends Controller
         }
 
         return view('home')
+        ->with('volunteer', $volunteer)
         ->with('provinces', $provinces)
         ->with('province', $province);
         ;

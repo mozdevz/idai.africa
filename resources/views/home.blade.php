@@ -5,6 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            @include('flash')
+
             @if(Auth::user()->role_id != 2 )
             <div class="card">
                 <div class="card-header">Welcome Mr {{Auth::user()->name}}</div>
@@ -37,9 +39,18 @@
                         
 
                         <div class="form-group row">
-                            <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Province') }}</label>
+                            <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Province') }} </label>
                             
                             <div class="col-md-6">
+                                
+                                @if(!is_null($volunteer))
+                                <span>
+                                    {{__('Yours')}}
+                                    <span class="text-success">: {{$volunteer->City->Province->name}}  </span>
+                                </span>
+                                @endif
+
+
                                 <select name="province" class="browser-default custom-select custom-select-lg mb-3" id="province_select">
                                     <option value="{{$province->id}}" selected>{{$province->name}}</option>
                                     @foreach($provinces as $someprovince)
@@ -53,6 +64,14 @@
                             <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
                             
                             <div class="col-md-6">
+
+                                @if(!is_null($volunteer))
+                                <span>
+                                    {{('Yours')}}
+                                    <span class="text-success">: {{$volunteer->City->name}} </span>
+                                </span>
+                                @endif
+
                                 <select name="city" class="browser-default custom-select custom-select-lg mb-3">
                                     <option value="{{$province->GeoCity[0]->id}}" selected>{{$province->GeoCity[0]->name}}</option>
                                     @foreach($province->GeoCity as $city)
@@ -66,7 +85,16 @@
                             <label for="celphone" class="col-md-4 col-form-label text-md-right">{{ __('Celphone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="celphone" type="number" class="form-control{{ $errors->has('celphone') ? ' is-invalid' : '' }}" name="celphone" value="{{ old('celphone') }}" required autofocus placeholder="84 7332021">
+
+                                @if(!is_null($volunteer))
+                                    <span >
+                                        {{__('Yours')}}
+                                        <span class="text-success">: {{$volunteer->telephone}} </span>
+                                        
+                                    </span>
+                                @endif
+
+                                <input id="celphone" type="number" class="form-control{{ $errors->has('celphone') ? ' is-invalid' : '' }}" name="celphone"  required autofocus placeholder="84 7332021"   @if(!is_null($volunteer)) value="{{$volunteer->telephone}}"  @else value="{{ old('celphone') }}" @endif>
 
                                 @if ($errors->has('celphone'))
                                     <span class="invalid-feedback" role="alert">

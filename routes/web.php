@@ -29,5 +29,6 @@ Route::group(['prefix' => 'admin'], function () {
 /*Voulunteer routes*/
 Route::post('/volunteer/new', 'VolunteerController@AddVolunteer')->middleware('auth');
 Route::get('/volunteer/cat/new', 'VolunteerController@AddVolunteerCategory')->name('add_volunteer_category_form')->middleware('auth');
+Route::post('/volunteer/cat/add', 'VolunteerController@StoreVolunteerCategory')->middleware('auth');
 Route::get('/person/new','PersonController@addForm');
 Route::post('/person/new','PersonController@add')->name('addPerson')->middleware('Auth');
