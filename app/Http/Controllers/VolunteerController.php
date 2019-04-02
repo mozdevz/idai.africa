@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\User;
+use App\Asset;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Models\Volunteer\Volunteer;
@@ -46,6 +47,10 @@ class VolunteerController extends Controller
 	public function AddVolunteerCategory(Request $request){
 
 		$volunteer =  Volunteer::with('Category')->where('user_id', Auth::user()->id)->first();
+
+		if (is_null($volunteer)) {
+			return back();	
+		}
 		
 		$local_cat = Category::where('is_locale', 1)->get();
 		$remote_cat = Category::where('is_remote', 1)->get();
@@ -70,8 +75,42 @@ class VolunteerController extends Controller
 
 		//flash('Thank your for your Volunteering, Please be in alleet as we can contact you asap', 'success');
 
-		return redirect('/home');
+		return redirect(route('add_volunteer_asset_form'));
 		
+	}
+
+	public function AddVolunteerAsset(){
+
+		$volunteer =  Volunteer::with('Asset')->where('user_id', Auth::user()->id)->first();
+		
+		if (is_null($volunteer)) {
+			return back();	
+		}
+
+		$assets = Asset::all();
+
+		$volunteer_asset_ids = array();
+
+		foreach ($volunteer->asset as $asset) {
+			 array_push($volunteer_asset_ids, $asset->id);
+		}
+
+		return view('volunteer.addassetform')
+		->with('volunteer_assets', $volunteer_asset_ids)
+		->with('assets', $assets);
+
+	}
+
+	public function StoreVolunteerAsset(Request $request){
+
+		$volunteer = Volunteer::where('user_id', Auth::user()->id)->first();
+
+		$volunteer->Asset()->sync($request->asset);
+
+		//flash('Thank your for your Volunteering, Please be in alleet as we can contact you asap', 'success');
+
+		return redirect('/home');
+
 	}
     
 }

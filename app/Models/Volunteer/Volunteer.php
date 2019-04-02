@@ -4,6 +4,7 @@ namespace App\Models\Volunteer;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Asset;  
 use App\Category;
 use App\GeoCity;
 
@@ -22,6 +23,10 @@ class Volunteer extends Model
 
     public function City(){
     	return $this->belongsTo(GeoCity::class, 'geo_city_id');
+    }
+
+    public function Asset(){
+        return $this->belongsToMany(Asset::class);
     }
 
 }
