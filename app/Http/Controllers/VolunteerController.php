@@ -50,7 +50,6 @@ class VolunteerController extends Controller
 	 */
 	public function addVolunteerCategory(LaravelRequest $request)
 	{
-		// add.catform
 		return view('welcome');
 	}   
 }
