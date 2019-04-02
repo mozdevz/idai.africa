@@ -11,6 +11,7 @@ before_script:
   - mysql -u root -e 'CREATE DATABASE idai_africa DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;'
   - composer self-update
   - composer install --no-dev
+  - composer dump-autoload
   - php artisan migrate
   - vendor/bin/phpunit
   #- pear install pear/PHP_CodeSniffer

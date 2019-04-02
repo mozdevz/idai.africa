@@ -17,21 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{id?}', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/person/new','PersonController@addForm')->name('person.view');
+Route::get('/person/new', 'PersonController@addForm')->name('person.add');
 
 Route::post('/person/new','PersonController@add')
-    ->name('person.store')->middleware('Auth');
+    ->name('person.store');
 
 Route::get('/organizations/login', 'OrganizationController@index')
     ->name('organizations.login');
@@ -47,3 +45,15 @@ Route::post('/organizations/find-volunteers',
 Route::get('/organizations/new-message', 
 	'OrganizationController@newMessage')
 ->name('organizations.newMessage');
+
+/*Voulunteer routes */
+
+Route::post('/volunteer/new', 'VolunteerController@addVolunteer')
+    ->name('volunteers.store');
+
+Route::get('/volunteer/cat/new', 'VolunteerController@addVolunteerCategory')
+    ->name('volunteers.addVolunteerCategory');
+
+Route::get('/person/new','PersonController@addForm');
+Route::post('/person/new','PersonController@add')
+    ->name('addPerson')->middleware('auth');

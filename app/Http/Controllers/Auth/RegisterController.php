@@ -41,6 +41,16 @@ class RegisterController extends Controller
     }
 
     /**
+     * Return the view for register
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.idai-register');
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
