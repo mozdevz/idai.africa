@@ -2,37 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\User;
-use Illuminate\Http\Request;
-use App\Models\Volunteer\Volunteer;
+use App\{
+	Http\Requests\VolunteerRequest as Request,
+	Models\Volunteer
+};
+use Illuminate\{
+	Http\Request as LaravelRequest,
+	Support\Facades\Auth
+};
 
 class VolunteerController extends Controller
 {
 
-	public function addVolunteer(Request $request, User $user)
+	/**
+	 * Create a new instance
+	 *
+	 * @return void
+	 */
+	public function __construct()
 	{
-		$this->validate($request, [
-			'province'	=>	'required|exists:geo_provinces,id|integer',
-			'city'		=>	'required|exists:geo_cities,id|integer',
-			'celphone'		=>	'required|string|size:9',
-		]);
-
-		//validate celphone number
-
-		$volunteer = Volunteer::Create([
-			'user_id'	=>	Auth::user()->id,
-			'telephone'	=>	$request->celphone,
-			'geo_city_id'	=>	$request->city,
-		]);
-
-		dd($volunteer);
-
-		redirect(route('add_volunteer_category_form'));
+		$this->middleware('auth');
 	}
 
-	public function AddVolunteerCategory(Request $request){
-		return view('add.catform');
+	/**
+	 * Store the volunteer in the storage
+	 *
+	 * @param  $request  Request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function addVolunteer(Request $request)
+	{
+		Volunteer::create([
+			'telephone'	=> $request->telephone,
+			'geo_city_id' => $request->city,
+			'user_id' => Auth::user()->id,
+		]);
+
+		return redirect(
+			route('volunteers.addVolunteerCategory')
+		);
 	}
-    
+
+	/**
+	 *
+	 *
+	 *
+	 */
+	public function addVolunteerCategory(LaravelRequest $request)
+	{
+		return view('welcome');
+	}   
 }
