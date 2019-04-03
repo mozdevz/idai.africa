@@ -50,10 +50,10 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showRegistrationForm()
+    /* public function showRegistrationForm()
     {
         return view('auth.idai-register');
-    }
+    }*/
 
     /**
      * Get a validator for an incoming registration request.
