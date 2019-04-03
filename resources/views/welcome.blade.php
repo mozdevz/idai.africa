@@ -95,9 +95,9 @@
                 <div class="title m-b-md">
                     {{__('Idai Africa')}}
                 </div>
-                <div class="content-center">
-                    <a class="button" href="{{url('/')}}/home"  >{{__('Support')}}</a>
-                </div>
+                {{--<div class="content-center">--}}
+                    {{--<a class="button" href="{{url('/')}}/home"  >{{__('Support')}}</a>--}}
+                {{--</div>--}}
 
                 
             </div>

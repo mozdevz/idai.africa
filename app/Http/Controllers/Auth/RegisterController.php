@@ -30,6 +30,11 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
+    public function showRegistrationForm()
+    {
+        return view('auth.idai-register');
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -39,6 +44,16 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+    /**
+     * Return the view for register
+     *
+     * @return \Illuminate\Http\Response
+     */
+    /* public function showRegistrationForm()
+    {
+        return view('auth.idai-register');
+    }*/
 
     /**
      * Get a validator for an incoming registration request.
