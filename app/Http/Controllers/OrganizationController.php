@@ -3,12 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\{
-    Models\Asset, 
-    Models\Category,
-    Models\Volunteer,
-    Models\VolunteerAsset,
-    Models\VolunteerCategory,
-    Repositories\Contracts\Organization
+    Models\Asset, Models\Category, Models\VolunteerAsset, Models\VolunteerCategory, Repositories\Contracts\Organization
 };
 use Illuminate\{
     Http\Request,
@@ -21,7 +16,6 @@ class OrganizationController extends Controller
     /**
      * The organization repository implementation
      *
-     * @var \App\Model\Organization
      */
     protected $organization;
 
@@ -52,13 +46,11 @@ class OrganizationController extends Controller
      */
     public function findVolunteersView()
     {
-        // Getting $categories and $assets to show in the filter form
+        //Getting $categories and $assets to show in the filter form
         $categories = Category::all();
         $assets = Asset::all();
 
-        return view('organizations.find-volunteers', 
-            compact('categories', 'assets')
-        );
+        return view('organizations.find-volunteers', compact('categories', 'assets'));
     }
 
     /**
@@ -69,27 +61,10 @@ class OrganizationController extends Controller
      */
     public function findVolunteers(Request $request)
     {
-        //$volunteerId = session('volunteerId');
-
-        // This code will produce a query like this: 
-        // SELECT * FROM volunteers_assets WHERE assets_id IN (1, 2) 
-        // AND WHERE volunteers_id = $volunteerId
-        //$volunteerAssets = VolunteerAsset::whereIn(
-            //'assets_id', $request->ajuda
-        //)->where('volunteers_id', '=', $volunteerId)
-        //->get();
-
-        //session(
-        //    ['countVolunteers' => ]
-        //);
-
         $volunteerId = session('volunteerId'); //TODO: missing description for this variable
 
         $type = $request->local_categories ? 'Local' : 'Remote';
-
-        $cat_list = $type === 'Local' 
-                        ? $request->local_categories 
-                        : $request->remote_categories;
+        $cat_list = $type === 'Local' ? $request->local_categories : $request->remote_categories;
 
         //TODO: include the query description in order to be clear for the devs
 
@@ -118,6 +93,7 @@ class OrganizationController extends Controller
         }
 
         return redirect()->back()->with('warning', 'Favor selecione os filtros');
+
     }
 
     /**

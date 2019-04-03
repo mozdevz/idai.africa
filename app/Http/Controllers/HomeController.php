@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GeoProvince;
 use Illuminate\Http\Request;
+use App\GeoProvince;
 
 class HomeController extends Controller
 {
@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -22,18 +22,22 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request, int $provinceId = null)
-    {
+    public function index(Request $request, $province_id = null )
+    {   
+   
         $provinces = GeoProvince::with('GeoCity')->get();
   
-        $province = is_null($provinceId) 
-                        ? GeoProvince::with('GeoCity')->first()
-                        : GeoProvince::with('GeoCity')
-                            ->where('id', $provinceId)->first();
+        if (!is_null($province_id)) {
+            $province = GeoProvince::with('GeoCity')->where('id',$province_id)->first();
+            
+        }else{
 
-        return view(
-            'home', 
-            compact('provinces', 'province')
-        );
+            $province = GeoProvince::with('GeoCity')->first();
+        }
+
+        return view('home')
+        ->with('provinces', $provinces)
+        ->with('province', $province);
+        ;
     }
 }
