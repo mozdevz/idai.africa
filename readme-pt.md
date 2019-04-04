@@ -49,7 +49,7 @@ Como instalar?
     </blockquote>
 7. Caso esteja a executar a aplicação pela primeira vez no _webserver_, assegure que o _webserver_ tem permissões para escrever no directório `/app/storage/`. Seria perfeito se o _web-root_ fosse o directório `/public`. As credenciais são ‘_**administrator**_’ e ‘_**password**_’
 
-Troubleshooting [ resolução de problemas ]
+Resolução de Problemas
 ----------------
 Assegure-se de activar o mod_rewrite. (Para webservers apache, é suficiente executar o comando `sudo a2enmod rewrite`). Isto resolve problemas relacionados ao roteamento.
 
