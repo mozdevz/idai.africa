@@ -14,7 +14,7 @@ IDAI Admin (Branch Laravel 5.8 of MozDevz )
 
 IDAI Admnin is a Basic Information System for AID Relief  by MozDevz Community. 
 
-[Click here to read this portuguese](readme-pt.md)
+See the portuguese version [here](readme-pt.md)
 
 Installation
 -----------
