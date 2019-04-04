@@ -12,7 +12,7 @@
 IDAI Admin (Branch Laravel 5.8 of MozDevz )
 =====
 
-Esta é uma versão portugesa do ficheiro [readme.md](readme.md)
+Esta é a versão portuguesa do ficheiro [readme.md](readme.md)
 
 IDAI Admin é um Sistema Informático, com fins relacionados com ajuda humanitaria, criado pela comunidade de desenvolvedores moçambicanos - MozDevz. 
 
