@@ -14,6 +14,8 @@ IDAI Admin (Branch Laravel 5.8 of MozDevz )
 
 IDAI Admnin is a Basic Information System for AID Relief  by MozDevz Community. 
 
+[Click here to read this portuguese](readme-pt.md)
+
 Installation
 -----------
 ##### DOCKER
@@ -40,8 +42,8 @@ Installation
     <blockquote> php artisan db:seed </blockquote>
    If #5 or #6 above fails, you may need to run the following command then repeat the two commands again.
     <blockquote> composer dumpautoload </blockquote>
-7. If you are running the application on a webserver eg. apache, ensure that the webserver has write permissions to the /app/storage folder.
-   Ideally the web-root should be the /public folder.
+7. If you are running the application on a webserver eg. apache, ensure that the webserver has write permissions to the `/app/storage` folder.
+   Ideally the web-root should be the `/public` folder.
    The default login credentials are '*administrator*' '*password*'.
 
 Troubleshooting
