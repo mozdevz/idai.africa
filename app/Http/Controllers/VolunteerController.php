@@ -20,6 +20,11 @@ class VolunteerController extends Controller
 			'celphone'		=>	'required|string|size:9',
 		]);
 
+		if (!is_numeric($request->celphone)) {
+			flash('The Mobile Phone field must be a numer ','danger');
+			return back();
+		}
+
 		$volunteer = Volunteer::where('user_id', Auth::user()->id)->first();
 
 		//validate celphone number

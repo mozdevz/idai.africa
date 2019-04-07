@@ -94,7 +94,7 @@
                                     </span>
                                 @endif
 
-                                <input id="celphone" type="number" class="form-control{{ $errors->has('celphone') ? ' is-invalid' : '' }}" name="celphone"  required autofocus placeholder="84 7332021"   @if(!is_null($volunteer)) value="{{$volunteer->telephone}}"  @else value="{{ old('celphone') }}" @endif>
+                                <input id="celphone" type="text" class="form-control{{ $errors->has('celphone') ? ' is-invalid' : '' }}" name="celphone"  required autofocus @if(!is_null($volunteer)) value="{{$volunteer->telephone}}"  @else value="{{ old('celphone') }}" @endif>
 
                                 @if ($errors->has('celphone'))
                                     <span class="invalid-feedback" role="alert">

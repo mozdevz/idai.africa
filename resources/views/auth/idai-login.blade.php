@@ -69,7 +69,7 @@
 
         <input type="submit" name="submit" class="btn btn-primary btn-block">
 
-        <div>You are not yet a vonlunteer? <a href="/register">register here</a></div>
+        <div>You are not yet a vonlunteer? <a href="{{url('/')}}/register">register here</a></div>
     </form>
 </div>
 

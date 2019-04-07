@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/customreg', 'CustomLoginController@Register')->name('CustomRegister')->middleware('guest');
+
 Route::get('/home/{id?}', 'HomeController@index')->name('home')->middleware('auth');
 
 Auth::routes();

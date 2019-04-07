@@ -72,7 +72,7 @@ class OrganizationController extends Controller
         {
             //01 - quering for the volunteers assets
             $volunteerAssets = VolunteerAsset::whereIn(
-                'assets_id', $request->assets ? $request->assets: []
+                'asset_id', $request->assets ? $request->assets: []
             ) ->get();
 
             //02 - quering for the volunteers categories based on the list
