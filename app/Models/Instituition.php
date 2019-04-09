@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Instituition extends Model
 {
-    pro
+    
 }

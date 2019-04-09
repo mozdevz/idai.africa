@@ -78,6 +78,15 @@
                         </div>
                         <div class="row">
                             <div class="col">
+                                <div class="form-group row mt-5 float-left">
+                                    <div class="col-md-6 offset-md-4">
+                                        <a href="{{route('home')}}" class="btn btn-primary float-right">
+                                            {{ __('Back') }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
                                 <div class="form-group row mt-5 float-right">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary float-right">

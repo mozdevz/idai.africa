@@ -39,7 +39,7 @@
 
 <div class="form-box">
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('CustomRegister') }}">
 
         @csrf
 
@@ -82,10 +82,21 @@
             <label for="password-confirm"><h2>{{ __('Confirm Password') }}</h2></label><br>
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required><br>
         </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <input id="terms" type="checkbox" name="terms">
+                <label for="terms">{{__('I read and Agree to the')}} <a href="{{url('/')}}/page/3">{{__('Terms of Usage')}}</a></label>
+                @if ($errors->has('terms'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('terms') }}</strong>
+                    </span>
+                @endif
+            </div>   
+        </div>
 
         <input type="submit" name="submit" class="btn btn-primary btn-block">
 
-        <div>You are yet a vonlunteer? <a href="/login">Login here</a></div>
+        <div class="mb-5">You are yet a vonlunteer? <a href="/login">Login here</a></div>
     </form>
 </div>
 
